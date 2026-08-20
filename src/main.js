@@ -3,20 +3,20 @@ import "./styles.css";
 const deploySteps = [
   {
     title: "Build",
-    text: "O Vite gera HTML, CSS e JavaScript otimizados dentro da pasta dist."
+    text: "O Vite gera HTML, CSS e JavaScript otimizados dentro da pasta dist.",
   },
   {
     title: "Bucket",
-    text: "O S3 armazena os arquivos estaticos que serao servidos como site."
+    text: "O S3 armazena os arquivos estaticos que serao servidos como site.",
   },
   {
     title: "Permissoes",
-    text: "Para estudo, o bucket pode ser publico. Em producao, prefira CloudFront."
+    text: "Para estudo, o bucket pode ser publico. Em producao, prefira CloudFront.",
   },
   {
     title: "Sync",
-    text: "O AWS CLI envia somente as mudancas e remove arquivos antigos com --delete."
-  }
+    text: "O AWS CLI envia somente as mudancas e remove arquivos antigos com --delete.",
+  },
 ];
 
 const checklist = [
@@ -24,7 +24,7 @@ const checklist = [
   "Criar bucket S3",
   "Gerar npm run build",
   "Publicar a pasta dist",
-  "Testar a URL do website"
+  "Testar a URL do website",
 ];
 
 document.querySelector("#app").innerHTML = `
@@ -32,7 +32,8 @@ document.querySelector("#app").innerHTML = `
     <section class="hero">
       <div class="heroCopy">
         <p class="eyebrow">Vite + Amazon S3</p>
-        <h1>Site estatico pronto para deploy</h1>
+        <h1>Site estatico pronto para</h1>
+        <h1>Teste Deploy S3</h1>
         <p class="lead">
           Um projeto pequeno para praticar o ciclo completo: desenvolver,
           gerar build, enviar para o S3 e entender cache de arquivos estaticos.
@@ -71,7 +72,7 @@ document.querySelector("#app").innerHTML = `
                 <h2>${step.title}</h2>
                 <p>${step.text}</p>
               </article>
-            `
+            `,
           )
           .join("")}
       </div>
