@@ -1,0 +1,15 @@
+{
+  "name": "estudos-s3-vite",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "deploy:s3": "powershell -ExecutionPolicy Bypass -File ./scripts/deploy-s3.ps1"
+  },
+  "devDependencies": {
+    "vite": "7.3.6"
+  }
+}

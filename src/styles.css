@@ -1,0 +1,223 @@
+:root {
+  --background: #f7f8f5;
+  --foreground: #17201c;
+  --muted: #63716b;
+  --line: #d9e0da;
+  --panel: #ffffff;
+  --teal: #13756d;
+  --blue: #245fb4;
+  --gold: #b47a18;
+  --red: #b64646;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(180deg, rgba(19, 117, 109, 0.1), transparent 300px),
+    var(--background);
+  color: var(--foreground);
+  font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+.pageShell {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 34px 0 44px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 430px);
+  align-items: center;
+  gap: 34px;
+  min-height: 390px;
+  padding: 18px 0 30px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--teal);
+  font-size: 0.84rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 12ch;
+  margin-bottom: 18px;
+  font-size: clamp(2.6rem, 8vw, 5.3rem);
+  line-height: 0.97;
+  letter-spacing: 0;
+}
+
+.lead {
+  max-width: 620px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.flowImage {
+  width: 100%;
+  aspect-ratio: 1.08;
+  object-fit: contain;
+}
+
+.statusBar {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.statusBar div {
+  display: grid;
+  gap: 4px;
+  padding: 18px 20px;
+  border-right: 1px solid var(--line);
+}
+
+.statusBar div:last-child {
+  border-right: 0;
+}
+
+.statusBar strong {
+  font-size: 1.35rem;
+}
+
+.statusBar span,
+.stepCard p,
+.checkPanel li {
+  color: var(--muted);
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 310px;
+  gap: 22px;
+  padding-top: 28px;
+}
+
+.stepGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.stepCard,
+.checkPanel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.stepCard {
+  min-height: 172px;
+  padding: 20px;
+}
+
+.stepNumber {
+  display: inline-grid;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 18px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--foreground);
+  color: #ffffff;
+  font-size: 0.83rem;
+  font-weight: 800;
+}
+
+.stepCard h2,
+.checkPanel h2 {
+  margin-bottom: 12px;
+  font-size: 1.16rem;
+}
+
+.stepCard p {
+  margin-bottom: 0;
+  line-height: 1.58;
+}
+
+.checkPanel {
+  padding: 20px;
+}
+
+.checkPanel ul {
+  display: grid;
+  gap: 13px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checkPanel li {
+  position: relative;
+  padding-left: 24px;
+  line-height: 1.48;
+}
+
+.checkPanel li::before {
+  position: absolute;
+  top: 0.15rem;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--teal);
+  border-radius: 3px;
+  content: "";
+}
+
+@media (max-width: 860px) {
+  .pageShell {
+    width: min(100% - 28px, 680px);
+    padding-top: 24px;
+  }
+
+  .hero,
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .flowImage {
+    max-width: 420px;
+  }
+
+  .statusBar,
+  .stepGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .statusBar div {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .statusBar div:last-child {
+    border-bottom: 0;
+  }
+}

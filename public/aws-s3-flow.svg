@@ -1,0 +1,28 @@
+<svg width="640" height="590" viewBox="0 0 640 590" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Fluxo de deploy Vite para S3</title>
+  <desc id="desc">Diagrama com etapas de codigo, build, S3 e navegador.</desc>
+  <rect width="640" height="590" rx="30" fill="#FFFFFF"/>
+  <rect x="40" y="42" width="560" height="506" rx="24" fill="#F1F6F2" stroke="#D9E0DA" stroke-width="2"/>
+  <rect x="88" y="96" width="180" height="98" rx="16" fill="#245FB4"/>
+  <text x="120" y="138" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Codigo</text>
+  <text x="120" y="166" fill="#DBE9FF" font-family="Arial, Helvetica, sans-serif" font-size="15">src + public</text>
+  <rect x="372" y="96" width="180" height="98" rx="16" fill="#13756D"/>
+  <text x="405" y="138" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Build</text>
+  <text x="405" y="166" fill="#DDF6F2" font-family="Arial, Helvetica, sans-serif" font-size="15">dist otimizado</text>
+  <rect x="88" y="352" width="180" height="98" rx="16" fill="#B47A18"/>
+  <text x="120" y="394" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">S3</text>
+  <text x="120" y="422" fill="#FFEBC8" font-family="Arial, Helvetica, sans-serif" font-size="15">bucket estatico</text>
+  <rect x="372" y="352" width="180" height="98" rx="16" fill="#B64646"/>
+  <text x="405" y="394" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Browser</text>
+  <text x="405" y="422" fill="#FFE2E2" font-family="Arial, Helvetica, sans-serif" font-size="15">site publicado</text>
+  <path d="M276 145H358" stroke="#17201C" stroke-width="6" stroke-linecap="round"/>
+  <path d="M344 129L360 145L344 161" stroke="#17201C" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M462 208V338" stroke="#17201C" stroke-width="6" stroke-linecap="round"/>
+  <path d="M446 324L462 340L478 324" stroke="#17201C" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M364 401H282" stroke="#17201C" stroke-width="6" stroke-linecap="round"/>
+  <path d="M296 385L280 401L296 417" stroke="#17201C" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M178 338V208" stroke="#17201C" stroke-width="6" stroke-linecap="round"/>
+  <path d="M162 222L178 206L194 222" stroke="#17201C" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="320" cy="273" r="58" fill="#17201C"/>
+  <text x="286" y="282" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">AWS</text>
+</svg>
