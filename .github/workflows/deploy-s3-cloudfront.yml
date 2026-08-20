@@ -15,9 +15,9 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  AWS_REGION: ${{ vars.AWS_REGION || 'sa-east-1' }}
-  S3_BUCKET: ${{ vars.S3_BUCKET }}
-  CLOUDFRONT_DISTRIBUTION_ID: ${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}
+  AWS_REGION: ${{ secrets.AWS_REGION || vars.AWS_REGION || 'sa-east-1' }}
+  S3_BUCKET: ${{ secrets.S3_BUCKET || vars.S3_BUCKET }}
+  CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID || vars.CLOUDFRONT_DISTRIBUTION_ID }}
   AWS_ROLE_TO_ASSUME: ${{ secrets.AWS_ROLE_TO_ASSUME }}
 
 jobs:
@@ -36,9 +36,9 @@ jobs:
 
       - name: Validate deployment configuration
         run: |
-          test -n "${AWS_REGION}" || { echo "Missing AWS_REGION repository variable"; exit 1; }
-          test -n "${S3_BUCKET}" || { echo "Missing S3_BUCKET repository variable"; exit 1; }
-          test -n "${CLOUDFRONT_DISTRIBUTION_ID}" || { echo "Missing CLOUDFRONT_DISTRIBUTION_ID repository variable"; exit 1; }
+          test -n "${AWS_REGION}" || { echo "Missing AWS_REGION repository secret or variable"; exit 1; }
+          test -n "${S3_BUCKET}" || { echo "Missing S3_BUCKET repository secret or variable"; exit 1; }
+          test -n "${CLOUDFRONT_DISTRIBUTION_ID}" || { echo "Missing CLOUDFRONT_DISTRIBUTION_ID repository secret or variable"; exit 1; }
           test -n "${AWS_ROLE_TO_ASSUME}" || { echo "Missing AWS_ROLE_TO_ASSUME repository secret"; exit 1; }
 
       - name: Install dependencies
