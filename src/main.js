@@ -32,8 +32,7 @@ document.querySelector("#app").innerHTML = `
     <section class="hero">
       <div class="heroCopy">
         <p class="eyebrow">Vite + Amazon S3</p>
-        <h1>Site estatico pronto para</h1>
-        <h1>Teste Deploy S3</h1>
+        <h1>Site estatico pronto para S3</h1>
         <p class="lead">
           Um projeto pequeno para praticar o ciclo completo: desenvolver,
           gerar build, enviar para o S3 e entender cache de arquivos estaticos.

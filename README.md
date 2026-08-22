@@ -54,8 +54,8 @@ No GitHub, configure em `Settings > Secrets and variables > Actions > Variables`
 | Nome | Exemplo | Descricao |
 | --- | --- | --- |
 | `AWS_REGION` | `sa-east-1` | Regiao onde o bucket S3 foi criado |
-| `S3_BUCKET` | `meu-estudo-aws-frontend` | Nome do bucket S3 |
-| `CLOUDFRONT_DISTRIBUTION_ID` | `ECSHDLOLQ7BWX` | ID da distribuicao CloudFront |
+| `S3_BUCKET` | `nome-do-seu-bucket` | Nome do bucket S3 |
+| `CLOUDFRONT_DISTRIBUTION_ID` | `DISTRIBUTION_ID` | ID da distribuicao CloudFront |
 
 ### Secret do repositorio
 
@@ -76,10 +76,10 @@ Depois crie uma role IAM para o GitHub Actions assumir. A trust policy deve limi
 
 Troque `ACCOUNT_ID` e o valor de `sub` pelos dados reais do repositorio. No GitHub, algumas contas usam o formato comum com nomes e outras usam IDs imutaveis.
 
-Neste estudo, o `sub` encontrado no log OIDC foi:
+Exemplo de `sub` no formato com IDs imutaveis:
 
 ```text
-repo:andersonxss@1099832/estudos-s3-vite@1341172521:ref:refs/heads/main
+repo:OWNER@OWNER_ID/REPO@REPO_ID:ref:refs/heads/main
 ```
 
 Exemplo de trust policy usando esse formato:
@@ -99,7 +99,7 @@ Exemplo de trust policy usando esse formato:
           "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
         },
         "StringLike": {
-          "token.actions.githubusercontent.com:sub": "repo:andersonxss@1099832/estudos-s3-vite@1341172521:ref:refs/heads/main"
+          "token.actions.githubusercontent.com:sub": "repo:OWNER@OWNER_ID/REPO@REPO_ID:ref:refs/heads/main"
         }
       }
     }
@@ -111,7 +111,7 @@ Se outro repositorio for usado, rode uma etapa temporaria de debug dos claims OI
 
 ### Permissoes minimas da role IAM
 
-Troque `nome-do-seu-bucket`, `ACCOUNT_ID` e `DISTRIBUTION_ID` pelos valores reais:
+Troque `nome-do-seu-bucket`, `ACCOUNT_ID` e `DISTRIBUTION_ID` pelos valores reais. Nao publique esses valores reais em repositorios publicos.
 
 ```json
 {
