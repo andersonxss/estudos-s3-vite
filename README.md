@@ -74,7 +74,15 @@ No IAM da AWS, crie um provedor de identidade OIDC para o GitHub:
 
 Depois crie uma role IAM para o GitHub Actions assumir. A trust policy deve limitar o acesso ao seu repositorio e a branch `main`.
 
-Troque `ACCOUNT_ID`, `OWNER` e `REPO` pelos seus valores reais:
+Troque `ACCOUNT_ID` e o valor de `sub` pelos dados reais do repositorio. No GitHub, algumas contas usam o formato comum com nomes e outras usam IDs imutaveis.
+
+Neste estudo, o `sub` encontrado no log OIDC foi:
+
+```text
+repo:andersonxss@1099832/estudos-s3-vite@1341172521:ref:refs/heads/main
+```
+
+Exemplo de trust policy usando esse formato:
 
 ```json
 {
@@ -91,10 +99,7 @@ Troque `ACCOUNT_ID`, `OWNER` e `REPO` pelos seus valores reais:
           "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
         },
         "StringLike": {
-          "token.actions.githubusercontent.com:sub": [
-            "repo:OWNER/REPO:ref:refs/heads/main",
-            "repo:OWNER@*/REPO@*:ref:refs/heads/main"
-          ]
+          "token.actions.githubusercontent.com:sub": "repo:andersonxss@1099832/estudos-s3-vite@1341172521:ref:refs/heads/main"
         }
       }
     }
@@ -102,7 +107,7 @@ Troque `ACCOUNT_ID`, `OWNER` e `REPO` pelos seus valores reais:
 }
 ```
 
-O segundo formato cobre repositorios GitHub que usam claims OIDC imutaveis com IDs no `sub`.
+Se outro repositorio for usado, rode uma etapa temporaria de debug dos claims OIDC ou consulte o valor do `sub` enviado pelo GitHub Actions antes de fechar a trust policy.
 
 ### Permissoes minimas da role IAM
 
